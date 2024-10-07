@@ -5,3 +5,4 @@ O objetivo desde projeto é criar uma aplicação REST em Quarkus, que expõe um
 O código fonte está na pasta: **backend-saldo**
 
 O passo-a-passo para a montagem do projeto está disponível em:
+https://medium.com/@fernandoreb/microservi%C3%A7os-api-rest-com-quarkus-e-openapi-39f536e7bc46
