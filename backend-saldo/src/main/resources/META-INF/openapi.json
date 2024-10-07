@@ -1,0 +1,95 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Saldo de Conta Corrente",
+        "version": "1.0.0",
+        "description": "API para trazer o saldo de uma conta corrente"
+    },
+    "paths": {
+        "/api/saldo/v1": {
+            "summary": "API de Saldo",
+            "description": "API que retornará o Saldo de uma agência/conta",
+            "get": {
+                "tags": [
+                    "Saldo"
+                ],
+                "parameters": [
+                    {
+                        "name": "agencia",
+                        "description": "Número da Agência",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "conta",
+                        "description": "Número da conta",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/Saldo"
+                    }
+                },
+                "summary": "Saldo de Agência e Conta"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Saldo": {
+                "title": "Root Type for Saldo",
+                "description": "Saldo da Conta",
+                "type": "object",
+                "properties": {
+                    "Saldo": {
+                        "type": "object",
+                        "properties": {
+                            "moeda": {
+                                "type": "string"
+                            },
+                            "valor": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "example": {
+                    "Saldo": {
+                        "moeda": "R$",
+                        "valor": "10,00"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "Saldo": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Saldo"
+                        },
+                        "examples": {
+                            "Saldo": {
+                                "value": {
+                                    "Saldo": {
+                                        "moeda": "R$",
+                                        "valor": "10,00"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "saldo da conta"
+            }
+        }
+    }
+}
